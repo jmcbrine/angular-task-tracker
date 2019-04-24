@@ -1,3 +1,91 @@
-<h1>
-  {{title}}
-</h1>
+<html style="background-color: #f2f2f2">
+    <head>
+        <meta charset="UTF-8">
+      <title>Angular</title>
+      </head>
+<body>
+  <div class ="title">
+    <h1>Task Tracker</h1>
+    <p>v2.0</p>
+  </div>
+  <div class = "container">
+  <div class="one">
+<h2>Create a Task</h2>
+<form #tastForm="ngForm">
+    <div class="form-group">
+      <label for="name">Task Name</label>
+      <input id="name" name="name" class="form-control"
+      required minlength="4" type="text"
+      [(ngModel)]="model.name" #name="ngModel" >
+
+<div *ngIf="name.invalid && (name.dirty || name.touched)"
+    class="alert alert-danger">
+
+  <div *ngIf="name.errors.required">
+    <div  class="tooltip">
+      <span class="tooltiptext">Task name is required.</span>
+      </div>
+  </div>
+  <div *ngIf="name.errors.minlength">
+      <div  class="tooltip">
+          <span class="tooltiptext">Task name must be at least 4 characters long.</span>
+          </div>
+  </div>
+
+</div>
+    </div>
+
+    <div class="form-group">
+      <label for="date">Date</label>
+      <input required type="date" class="form-control" id="date"
+      name="date" placeholder="" [(ngModel)]="model.date" #date="ngModel">
+      <div *ngIf="date.invalid && (date.dirty || date.touched)"
+    class="alert alert-danger">
+
+  <div *ngIf="date.errors.required">
+    <div  class="tooltip">
+      <span class="tooltiptext">Date is required.</span>
+      </div>
+  </div>
+
+</div>
+    </div>
+
+    <div class="form-group">
+          <label for="assigned">Assigned To</label>
+          <input required type="text" name="assigned" class="form-control" id="assigned"
+                 [(ngModel)]="model.assigned" #assigned="ngModel">
+                 <div *ngIf="assigned.invalid && (assigned.dirty || assigned.touched)"
+                 class="alert alert-danger">
+             
+               <div *ngIf="assigned.errors.required">
+                 <div  class="tooltip">
+                   <span class="tooltiptext">Assigned to is required.</span>
+                   </div>
+               </div>
+             
+             </div>
+        </div>
+
+    <button type="submit" class="submit" (click)="onSubmit()" [disabled]="!tastForm.form.valid">Submit</button>
+
+  </form></div>
+<div class="one">
+  <h2>Existing Tasks</h2>
+  <!-- tabe with alternating row color -->
+  <div class="white">
+      <table class="taskTabel">
+    <tbody>
+        <tr *ngFor="let task of tasks" data-ng-hide="row.isRemoved">
+            <td style="font-weight:bold">{{task.name}}</td>
+            <td>{{task.date}}</td>
+            <td style="font-weight:bold">{{task.assigned}}</td>
+            <td><button type="submit" class="remove" (click)="remove(task)">Remove</button></td>
+        </tr>
+    </tbody>
+</table> 
+    </div>
+</div>
+</div>
+</body>
+</html>

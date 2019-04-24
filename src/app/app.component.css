@@ -1,0 +1,131 @@
+/* container styling */
+* {
+  margin: 0;
+}
+
+body,html {
+  background-color: #f2f2f2!important;
+}
+
+.title {
+  height: 150px;
+  padding-left: 45px;
+}
+
+.container {
+height: 100%;
+display: flex;
+justify-content: center;
+align-items: center;    
+overflow: hidden;
+}
+
+.one {
+  margin: 0 10px 10px 10px;
+  width: 50%;
+  height: 550px;
+  padding: 35px;
+  float: left;
+  background: white;
+  align-content: center;
+  overflow:auto;
+}
+
+/* tag specific styles */
+input {
+  width: 100%;
+  height: 10%;
+  padding: 12px 20px;
+  margin: 8px 0 40px 0;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: #f2f2f2;
+}
+
+label {
+  display:block;
+  font-weight:bold; 
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+button {
+  background-color: rgb(82, 80, 80);
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 20px;
+  border: none; 
+}
+
+.submit {
+  padding: 14px 20px;
+  margin: 8px 0;
+}
+
+.remove {
+  padding: 10px 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border:5px #f2f2f2 solid;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  padding: 5px;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+  border: 5px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+tr:hover {
+  background-color:  rgb(82, 80, 80);
+}
+
+h1 {
+  padding-top: 50px;
+}
+
+h1,p {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h2 {
+  text-align: left;
+  padding-bottom: 30px;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  width: 300px;
+  background-color: rgb(82, 80, 80);;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  bottom: 20px;
+}
+
+/* validation styling */
+.ng-valid[required], .ng-valid.required  {
+    border-left: 5px solid #42A948; /* green */
+  }
+  
+  .ng-invalid:not(form)  {
+    border-left: 5px solid #a94442; /* red */
+  }
